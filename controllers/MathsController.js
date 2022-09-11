@@ -6,8 +6,15 @@ module.exports =
             this.repository = new Repository(new ContactModel());
         }
 
-        get(id) {
-
+        get(op, x, y) {
+            switch(op){
+                case '*':
+                    console.log("star");
+                    break;
+                default:
+                    console.log("default");
+                    break;
+            }
         }
         post(data) {
             this.HttpContext.response.notImplemented();
