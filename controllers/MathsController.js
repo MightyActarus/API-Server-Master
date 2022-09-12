@@ -11,6 +11,9 @@ module.exports =
                 case '*':
                     console.log("star");
                     break;
+                    case '-':
+                console.log("star");
+                    break;
                 default:
                     console.log("default");
                     break;
