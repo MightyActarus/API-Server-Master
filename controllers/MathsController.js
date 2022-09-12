@@ -11,9 +11,6 @@ module.exports =
                 case '*':
                     console.log("star");
                     break;
-                    case 'auyt':
-                    console.log("star");
-                    break;
                 default:
                     console.log("default");
                     break;
