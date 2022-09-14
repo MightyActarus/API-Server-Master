@@ -12,5 +12,13 @@
   "dependencies": {
     "date-and-time": "^2.4.1",
     "query-string": "^7.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MightyActarus/API-Server-Master.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MightyActarus/API-Server-Master/issues"
+  },
+  "homepage": "https://github.com/MightyActarus/API-Server-Master#readme"
 }
