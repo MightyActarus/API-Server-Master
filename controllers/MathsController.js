@@ -1,7 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const { param } = require('express/lib/request');
-const { count } = require('console');
 
 module.exports =
     class MathsController extends require('./Controller') {
