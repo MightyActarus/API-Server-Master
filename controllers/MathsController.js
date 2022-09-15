@@ -59,7 +59,8 @@ module.exports =
                 if(isNaN(params.n)){ this.error = "Invalid n parameter"; }
                 else{ return true; }
             }
-            else{ this.error = "Too many parameters"; }
+            else if(Object.keys(params).length > 2){ this.error = "Too many parameters"; }
+            else { this.error = "Missing parameters"; }
             return false
         }
         twoVariablesVariableCheck(params){
@@ -68,7 +69,8 @@ module.exports =
                 else if(isNaN(params.y)){ this.error = "Invalid Y parameter"; }
                 else{ return true; }
             }
-            else{ this.error = "Too many parameters"; }
+            else if(Object.keys(params).length > 3){ this.error = "Too many parameters"; }
+            else { this.error = "Missing parameters"; }
             return false;
         }
         addition(params){
@@ -111,7 +113,8 @@ module.exports =
         }
         factorial(params){
             if(this.oneVariableCheck(params))
-            return this.getFactorial(parseInt(params.n));
+            if(parseInt(params.n) >= 0){ return this.getFactorial(parseInt(params.n)); }
+            else{ this.error = "Negative n parameter"; }
         }
         prime(params){
             if(this.oneVariableCheck(params))
