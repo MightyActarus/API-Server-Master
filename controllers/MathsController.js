@@ -56,20 +56,20 @@ module.exports =
 
         oneVariableCheck(params){
             if(Object.keys(params).length == 2){
-                if(isNaN(params.n)){ this.error = "Invalid n parameter"; }
+                if(isNaN(params.n)){ this.error = "ERROR CODE 422: Invalid n parameter"; }
                 else{ return true; }
             }
-            else if(Object.keys(params).length > 2){ this.error = "Too many parameters"; }
-            else { this.error = "Missing parameters"; }
+            else if(Object.keys(params).length > 2){ this.error = "ERROR CODE 422: Too many parameters"; }
+            else { this.error = "ERROR CODE 422: Missing parameters"; }
             return false
         }
         twoVariablesVariableCheck(params){
             if(Object.keys(params).length == 3){
-                if(isNaN(params.x)){ this.error = "Invalid X parameter"; }
-                else if(isNaN(params.y)){ this.error = "Invalid Y parameter"; }
+                if(isNaN(params.x)){ this.error = "ERROR CODE 422: Invalid X parameter"; }
+                else if(isNaN(params.y)){ this.error = "ERROR CODE 422: Invalid Y parameter"; }
                 else{ return true; }
             }
-            else if(Object.keys(params).length > 3){ this.error = "Too many parameters"; }
+            else if(Object.keys(params).length > 3){ this.error = "ERROR CODE 422: Too many parameters"; }
             else { this.error = "Missing parameters"; }
             return false;
         }
@@ -114,23 +114,31 @@ module.exports =
         factorial(params){
             if(this.oneVariableCheck(params))
             if(parseInt(params.n) >= 0){ return this.getFactorial(parseInt(params.n)); }
-            else{ this.error = "Negative n parameter"; }
+            else{ this.error = "ERROR CODE 422: n parameter must be positive"; }
         }
         prime(params){
-            if(this.oneVariableCheck(params))
-            return this.isPrime(parseInt(params.n));
+            if(this.oneVariableCheck(params)){
+                if(params.n - Math.floor(params.n) == 0)
+                    return this.isPrime(parseInt(params.n));
+                else
+                    this.error = "ERROR CODE 422: this function requires n to be an integer"
+            }
         }
         nextPrime(params){
-            if(this.oneVariableCheck(params))
-            return this.findPrime(parseInt(params.n));
+            if(this.oneVariableCheck(params)){
+                if(params.n - Math.floor(params.n) == 0)
+                    return this.findPrime(parseInt(params.n));
+                else
+                    this.error = "ERROR CODE 422: this function requires n to be an integer"
+            }
         }
-
         getFactorial(n){
             if(n===0||n===1){
               return 1;
             }
             return n*this.getFactorial(n-1);
         }
+
         isPrime(value) {
             for(var i = 2; i < value; i++) {
                 if(value % i === 0) {
